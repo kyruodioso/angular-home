@@ -1,0 +1,58 @@
+<section class="meet-agents mt-4">
+  <div class="mt-4">
+    <h2 class="text-center mt-4"><u>MEET OUR AGENTS</u></h2>
+    <!--carousel cards-->
+    <swiper class="swiper-container">
+      <ng-template swiperSlide
+      *ngFor="let agent of agent"
+        ><div class="card">
+          <img
+            src="{{agent.image}}"
+            class="img-thumbnail"
+            alt="{{agent.name}}"
+          />
+          <div class="card-body">
+            <h4 class="card-title">{{agent.name}}</h4>
+            <p class="card-text">
+              {{agent.info}}
+            </p>
+            <ul class="list-group list-group-light">
+              <li class="list-group-item border-0"><i class="fas fa-building text-primary me-2"></i><span>{{agent.data.company}}</span></li>
+              <li class="list-group-item border-0"><i class="fas fa-envelope text-primary me-2"></i>
+                <span>{{agent.data.email}}</span>
+              </li>
+              <li class="list-group-item border-0"><i class="fas fa-phone-alt text-primary me-2"></i>
+                <span>{{agent.data.phone}}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="card-footer d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+            <div class="me-5 d-none d-lg-block">
+              <button type="button" class="btn btn-link" mdbRipple rippleColor="dark">View Profile</button>
+            </div>
+            <!-- Left -->
+        
+            <!-- Right -->
+            <div>
+              <a href="" class="me-2 text-reset">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="" class="me-2 text-reset">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="" class="me-2 text-reset">
+                <i class="fab fa-google"></i>
+              </a>
+              <a href="" class="me-2 text-reset">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="" class="me-2 text-reset">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </div>
+          </div></div
+      ></ng-template>
+
+    </swiper>
+  </div>
+</section>

@@ -1,0 +1,69 @@
+<div class="card shadow-2 mt-3">
+    <div class="card-body">
+      <div class="d-flex justify-content-end">
+        <div class="col">
+          <div mdbDropdown class="btn-group shadow-0">
+            <button
+              type="button"
+              class="btn btn-light dropdown-toggle"
+              mdbDropdownToggle
+              aria-expanded="false"
+            >
+              Sort by {{sort}}
+            </button>
+            <ul mdbDropdownMenu class="dropdown-menu">
+              <li><a class="dropdown-item" (click)="onSortUpdated('desc')">desc</a></li>
+              <li><a class="dropdown-item" (click)="onSortUpdated('asc')">asc</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <select
+                name=""
+                id=""
+                class="form-select"
+                aria-label="Default select example"
+              >
+                <option selected>Show {{itemsShowCount}}</option>
+                <option (click)="onItemsUpdated(12)" value="12">Show 12</option>
+                <option (click)="onItemsUpdated(16)" value="16">Show 16</option>
+                <option (click)="onItemsUpdated(24)" value="24">Show 24</option>
+                <option (click)="onItemsUpdated(36)" value="36">Show 36</option>
+              </select>
+            </div>
+            <div class="col">
+              <button
+                type="button"
+                class="btn btn-link btn-floating"
+                mdbRipple
+                rippleColor="dark"
+                (click)="onColumnsUpdated(1)"
+              >
+                <i class="fas fa-lg fa-list"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-link btn-floating"
+                mdbRipple
+                rippleColor="dark"
+                (click)="onColumnsUpdated(2)"
+              >
+                <i class="fas fa-lg fa-th-large"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-link btn-floating"
+                mdbRipple
+                rippleColor="dark"
+                (click)="onColumnsUpdated(3)"
+              >
+                <i class="fa fa-lg fa-th"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,83 @@
+<div class="mt-3">
+    <div class="row row-cols-1 row-cols-md-3 g-3" >
+      <div class="col" *ngFor="let property of properties">
+        <div class="card" >
+          <mdb-carousel [controls]="true" [indicators]="true" [ride]="false" >
+            <mdb-carousel-item *ngFor="let propertyImage of property.gallery">
+              <img
+                src="https://www.housekey.themeseason.com/{{propertyImage.medium}}"
+                class="d-block w-100 card-img-top"
+                alt="..."
+              />
+            </mdb-carousel-item>
+         
+          </mdb-carousel>
+          <div class="card-body">
+         
+            <span class="btn btn-sm mb-2 ms-1"
+            *ngFor="let propertyStatus of property.propertyStatus"
+            [ngClass]="{
+              'btn-warning' : propertyStatus === 'No Fees',
+              'btn-success': propertyStatus ==='For Sale',
+              'btn-primary' : propertyStatus ==='For Rent',
+              'btn-info' : propertyStatus === 'Open House',
+              'btn-danger' : propertyStatus === 'Hot Offer',
+              'btn-dark' : propertyStatus === 'Sold'
+            }"
+            >{{propertyStatus}} </span>
+            <h5 class="card-title">{{property.title}}</h5>
+            <p class="card-text">
+              <small>
+                <i class="fas fa-map-marker-alt"></i>
+                <em> {{property.formattedAddress}} </em>
+              </small>
+            </p>
+            <span class="text-primary h5" *ngIf="property.priceDollar.sale!==null; else elseBlock">{{property.priceDollar.sale | currency}}</span>
+            <ng-template #elseBlock ><span class="text-primary h5">{{property.priceDollar.rent | currency}}</span></ng-template>
+            
+            <span class="float-end"
+              >  <star-rating [value]="property.ratingsCount" totalstars="5" checkedcolor="yellow" uncheckedcolor="grey" size="15px" readonly="false" (rate)="onRate($event)"></star-rating></span>
+            <ol class="list-group list-group-light">
+              <li
+                class="list-group-item p-0 mb-1 px-1 d-flex justify-content-between "
+              >
+                <div class=" me-auto">Property size</div>
+                <span class="">{{property.area.value}} mts<sup>2</sup></span>
+              </li>
+              <li
+                class="list-group-item p-0 mb-1 px-1 d-flex justify-content-between "
+              >
+                <div class=" me-auto">Bedrooms</div>
+                <span class="">{{property.bedrooms}}</span>
+              </li>
+              <li
+                class="list-group-item p-0 mb-1 px-1 d-flex justify-content-between "
+              >
+                <div class=" me-auto">Bathrooms</div>
+                <span class="">{{property.bathrooms}}</span>
+              </li>
+              <li
+                class="list-group-item p-0 mb-1 px-1 d-flex justify-content-between "
+              >
+                <div class=" me-auto">Garages</div>
+                <span class="">{{property.garages}}</span>
+              </li>
+            </ol>
+            
+            <div class="card-text d-flex align-items-center justify-content-between">
+              <small>
+                <i class="fas fa-calendar-alt"></i>
+                <em> {{property.published | date:'mediumDate'}} </em>
+              </small>
+              <button type="button" class="btn btn-primary btn-lg btn-floating" mdbRipple>
+                <i class="fas fa-plus"></i>
+              </button>
+              <button type="button" class="btn btn-warning btn-lg btn-floating" (click)="onAddToCart()" mdbRipple>
+                <i class="fas fa-cart-plus"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

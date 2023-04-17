@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container-fluid">
+        
+      <a class="navbar-brand" href="#">HouseKit!</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        (click)="togglerSecondExample.toggle()"
+        aria-controls="navbarTogglerDemo02"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+      <div
+        class="collapse navbar-collapse"
+        id="navbarTogglerDemo02"
+        mdbCollapse
+        #togglerSecondExample="mdbCollapse"
+      >
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/about-us">About Us</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/contact">Contact</a>
+          </li>       <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/properties">Properties</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+          </li>
+      </ul>
+      <div class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav">
+          <!-- Avatar -->
+          <li mdbDropdown class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle d-flex align-items-center"
+              href="#"
+              id="navbarDropdownMenuLink"
+              role="button"
+              mdbDropdownToggle
+              aria-expanded="false"
+            >
+            <i class="fas fa-shopping-cart fa-lg"></i>
+            <div>
+            <span class="badge rounded-pill badge-notification bg-danger">{{itemsQuantity}}</span>
+          </div>
+            </a>
+            <ul mdbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li>
+                <a class="dropdown-item" routerLink="/cart">Cart</a>
+                <span>{{cart.items.length}}</span>
+              </li>
+              <div *ngFor="let item of cart.items">
+             
+              <li>
+                <span>{{item.property}}</span>
+            
+              </li>
+            </div>
+            <button (click)="onClearCart()" type="button" class="btn btn-danger btn-sm btn-floating" mdbRipple>
+              <i class="fas fa-minus"></i>
+            </button>
+            </ul>
+          </li>
+        </ul>
+      <a href="" class="me-2">
+        <i class="fas fa-envelope fa-lg"></i>
+        <span class="badge rounded-pill badge-notification bg-danger">999+</span>
+      </a>
+    </div>
+      </div>
+    </div>
+  </nav>

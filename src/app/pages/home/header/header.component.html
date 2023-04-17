@@ -1,0 +1,25 @@
+
+<div *ngIf="slides.length > 0">
+
+<mdb-carousel [controls]="true" [animation]="'fade'">
+
+  <mdb-carousel-item *ngFor="let slide of slides">
+    <img
+      src="https://www.housekey.themeseason.com/{{slide.image}}"
+      class="d-block w-100"
+      alt="..."
+    />
+    <div class="carousel-caption d-none d-md-block text-black">
+      <div class="card mb-5"  style="background-color: hsla(0, 0%, 98%, 0.8)">
+        <div class="card-body">
+          <h2 class="card-title">{{slide.title}}</h2>
+          <p class="card-text"><i class="fas fa-map-marker-alt fa-2x" style="color: #007aff;"></i>
+            <em> {{slide.location}}</em></p>
+          <button type="button" class="btn btn-primary"*ngIf="slide.priceDollar.sale!==null; else elseBlock">${{slide.priceDollar.sale}}</button>
+          <ng-template #elseBlock ><button type="button" class="btn btn-primary">${{slide.priceDollar.rent}}</button></ng-template>
+        </div>
+      </div>
+    </div>
+  </mdb-carousel-item>
+</mdb-carousel>
+</div>

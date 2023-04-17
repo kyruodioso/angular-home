@@ -1,0 +1,19 @@
+  <div class="col">
+    <app-header [properties]="properties"></app-header>
+
+  </div>
+<!--Properties filter-->
+<div class="container">
+<app-properties-filters (showTypeProperty)="onShowTypeProperty($event)" (showPropertyStatus)="onShowPropertyStatus($event)"></app-properties-filters>
+<div class="mb-2" *ngIf="propertyStatus || typeProperty">
+  <button type="button" class="btn btn-secondary btn-rounded" disabled>{{typeProperty}}</button>
+  <button *ngFor="let propertyStatus of arrayStatus"  type="button" class="btn btn-secondary btn-rounded" disabled>{{propertyStatus}}</button>
+</div>
+  <button type="button" class="btn btn-danger btn-rounded btn-lg" disabled>
+    32 FOUND
+  </button>
+<app-properties-header (columnsCountChange)="onColumnsCountChange($event)"></app-properties-header>
+{{cols}}
+  <!-- Section cards-->
+  <app-properties-cards (addToCart)="onAddToCart($event)"></app-properties-cards>
+</div>

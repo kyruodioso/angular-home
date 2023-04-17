@@ -1,0 +1,75 @@
+<div class="card border-top card-subheader border-4 border-primary shadow-2 mb-3 pb-3">
+    <div class="card-body">
+      <div class="d-flex justify-content-around">
+        <div class="row">
+          <div class="col-md">
+            <select
+              name=""
+              id=""
+              class="form-select"
+              aria-label="Default select example"
+              
+            >
+              <option selected >Select Property type</option>
+              <option *ngFor="let propertyType of propertiesType" [value]="propertyType" (click)="onShowTypeProperty(propertyType)">{{propertyType}}</option>
+            </select>
+          </div>
+          <div class="col-md">
+            <div mdbDropdown class="dropdown">
+              <button
+                class="btn btn-primary dropdown-toggle w-100"
+                type="button"
+                id="dropdownMenuButton"
+                aria-expanded="false"
+                mdbDropdownToggle
+              >
+                Select Property Status
+              </button>
+              <ul
+                mdbDropdownMenu
+                class="dropdown-menu dropdown-menu-md"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <li *ngFor="let propertyStatus of propertiesStatus">
+                  <a class="dropdown-item" (click)="onShowPropertyStatus(propertyStatus)"
+                    ><input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      [id]="propertyStatus"
+                    />
+                    <label class="form-check-label" [for]="propertyStatus">
+                      {{propertyStatus}}
+                    </label></a
+                  >
+                </li>
+     
+              </ul>
+            </div>
+          </div>
+          <div class="col">
+            <mdb-form-control>
+              <input mdbInput type="text" id="form1" class="form-control" />
+              <label mdbLabel class="form-label" for="form1">Price From</label>
+            </mdb-form-control>
+          </div>
+          <div class="col">
+            <mdb-form-control>
+              <input mdbInput type="text" id="form2" class="form-control" />
+              <label mdbLabel class="form-label" for="form2">Price To</label>
+            </mdb-form-control>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-transparent d-flex justify-content-center">
+      <div class="row">
+        <div class="col">
+          <button type="button" class="btn btn-danger">Clear</button>
+        </div>
+        <div class="col">
+          <button type="button" class="btn btn-primary">Advanced</button>
+        </div>
+      </div>
+    </div>
+  </div>
